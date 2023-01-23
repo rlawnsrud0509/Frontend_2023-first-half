@@ -1,4 +1,5 @@
 const express = require("express");
+const { request } = require("http");
 const app = express();
 const port = 3000;
 
@@ -7,8 +8,11 @@ app.get("/", (req, res) => {
 });
 
 app.get("/user/:id", (req, res) => {
-  const q = req.params;
+  const q = req.query;
   console.log(q);
+
+  // const q = req.params;
+  // console.log(q);
   res.json({ userid: q.id });
 });
 
