@@ -1,21 +1,11 @@
-var http = require("http");
-var fs = require("fs");
-var url = require("url");
+const express = require("express");
+const app = express();
+const port = 3000;
 
-var app = http.createServer(function (request, response) {
-  var _url = request.url;
-  var queryData = url.parse(_url, true).query;
-  console.log(queryData);
-  console.log(_url);
-  if (_url == "/") {
-    _url = "/index.html";
-  }
-  if (_url == "/favicon.ico") {
-    response.writeHead(404);
-    response.end();
-    return;
-  }
-  response.writeHead(200);
-  response.end(fs.readFileSync(__dirname + _url));
+app.get("/", (req, res) => {
+  res.send("Hello world");
 });
-app.listen(80);
+
+app.listen(port, () => {
+  console.log(`Express App listening on port ${port}`);
+});
