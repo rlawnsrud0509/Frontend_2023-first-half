@@ -6,12 +6,14 @@ app.get("/", (req, res) => {
   res.send("Hello world");
 });
 
-app.get("/dog", (req, res) => {
-  res.send("강아지");
+app.get("/user/:id", (req, res) => {
+  const q = req.params;
+  console.log(q);
+  res.json({ userid: q.id });
 });
 
 app.get("/cat", (req, res) => {
-  res.send("고양이");
+  res.send({ sound: "야옹" });
 });
 
 app.listen(port, () => {
