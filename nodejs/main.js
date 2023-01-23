@@ -3,6 +3,10 @@ const { request } = require("http");
 const app = express();
 const port = 3000;
 
+const cors = require("cors");
+
+app.use(cors());
+
 app.get("/", (req, res) => {
   res.send("Hello world");
 });
@@ -16,8 +20,22 @@ app.get("/user/:id", (req, res) => {
   res.json({ userid: q.id });
 });
 
-app.get("/cat", (req, res) => {
-  res.send({ sound: "야옹" });
+app.get("/sound/:name", (req, res) => {
+  //const p = req.params; p.name == const {name} = req.params //name값을 뽑아쓰는 코드를 단축시킨 것.
+
+  const { name } = req.params;
+
+  if (name === "dog") {
+    res.json({ sound: "멍멍" });
+  } else if (name === "cat") {
+    res.json({ sound: "야옹" });
+  } else if (name === "pig") {
+    res.json({ sound: "꿀꿀" });
+  } else if (name === "monkey") {
+    res.json({ sound: "우끼끼" });
+  } else {
+    res.json({ sound: "알수없음,," });
+  }
 });
 
 app.listen(port, () => {
