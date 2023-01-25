@@ -16,7 +16,7 @@
         fetch(`http://localhost:3000/sound/${name}`)
           .then((response) => response.json())
           .then((data) => {
-            h1.innerHTML = `받아온 데이터 : ${data.sound}`;
+            h1.innerHTML = `받은 데이터 : ${data.sound}`;
           });
       }
     </script>
