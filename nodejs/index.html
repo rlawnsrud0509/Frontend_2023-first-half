@@ -6,17 +6,19 @@
   </head>
   <body>
     <h1 id="sound"></h1>
-    <input id="input" type="text" />
-    <button onclick="getAPI()">API받아오기</button>
+    <button onclick="getAPI('dog')">강아지의 울음소리는 ???</button>
+    <button onclick="getAPI('cat')">고양이의 울음소리는 ???</button>
+    <button onclick="getAPI('monkey')">원숭이의 울음소리는 ???</button>
+    <button onclick="getAPI('pig')">돼지의 울음소리는 ???</button>
+    <button onclick="getAPI('dummy...')">???</button>
     <script>
-      function getAPI() {
-        const name = document.getElementById("input").value;
+      function getAPI(string) {
         const h1 = document.getElementById("sound");
 
-        fetch(`http://localhost:3000/sound/${name}`)
+        fetch(`http://localhost:3000/sound/${string}`)
           .then((response) => response.json())
           .then((data) => {
-            h1.innerHTML = `받아왔던 데이터 : ${data.sound}`;
+            h1.innerHTML = `울음 소리 는??? : ${data.sound}`;
           });
       }
     </script>
