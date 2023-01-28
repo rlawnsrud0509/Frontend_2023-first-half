@@ -18,7 +18,7 @@
         fetch(`http://localhost:3000/sound/${string}`)
           .then((response) => response.json())
           .then((data) => {
-            h1.innerHTML = `울음 소리 는??? : ${data.sound}`;
+            h1.innerHTML = `울음 소리는??? : ${data.sound}`;
           });
       }
     </script>
