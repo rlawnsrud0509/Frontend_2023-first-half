@@ -34,7 +34,7 @@ app.get("/sound/:name", (req, res) => {
   } else if (name === "monkey") {
     res.json({ sound: "우끼끼" });
   } else {
-    res.json({ sound: "알수없음,," });
+    res.json({ sound: "알수없음ㅜㅜ" });
   }
 });
 
