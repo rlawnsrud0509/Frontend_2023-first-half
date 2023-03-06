@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useRef } from "react";
 
 function App() {
+  const animal = useRef();
+  const animalText = useRef();
+
+  const getSound = (e) => {
+    axios(`http://localhost:3000/sound/${animal.current.value}`)
+      .then((response) => response.json())
+      .then((data) => {
+        animalText.current.innerHTML = `동물 울음소리는????? := ${data.sound}`;
+      });
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div>
+        <h1>동물 울음소리 알아보아요 ^^</h1>
+        <input ref={animal}></input>
+        <button onClick={getSound}>알아보아요~</button>
+        <h1 ref={animalText}>동물 울음소리는????? :=</h1>
+      </div>
+    </>
   );
 }
 

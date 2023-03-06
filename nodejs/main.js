@@ -21,6 +21,7 @@ app.get("/user/:id", (req, res) => {
 });
 
 app.get("/sound/:name", (req, res) => {
+  y;
   //const p = req.params; p.name == const {name} = req.params //name값을 뽑아쓰는 코드를 단축시킨 것.
 
   const { name } = req.params;
