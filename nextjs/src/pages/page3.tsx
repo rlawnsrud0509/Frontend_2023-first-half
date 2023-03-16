@@ -12,7 +12,6 @@ function Page3(props: any) {
       )
       .then((Response) => {
         setWeather(Response.data.weather[0].description);
-        console.log(Response.data.weather[0].description);
       });
   });
 
