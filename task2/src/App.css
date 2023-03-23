@@ -1,0 +1,21 @@
+.container {
+  width: 550px;
+  height: 853px;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 8.95px;
+}
+
+.Card {
+  display: flex;
+  flex-direction: row;
+  width: 513px;
+  margin-left: 37px;
+  overflow: scroll;
+  margin-top: 49px;
+}
+
+.Card::-webkit-scrollbar {
+  display: none;
+}

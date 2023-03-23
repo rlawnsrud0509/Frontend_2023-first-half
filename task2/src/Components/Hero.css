@@ -1,0 +1,15 @@
+.container2 {
+  width: 437px;
+  height: 376px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  align-items: flex-end;
+  margin-left: 36px;
+  margin-top: 26px;
+}
+
+.text {
+  width: 100%;
+  text-align: left;
+}
