@@ -1,10 +1,15 @@
 .container3 {
-  height: 293px;
+  height: 235px;
   width: 176px;
   display: flex;
   flex-direction: column;
   align-content: space-between;
   margin-right: 18px;
+  position: relative;
+}
+
+.container3 > img {
+  border-radius: 8px;
 }
 .textArea {
   width: 100%;
@@ -17,4 +22,14 @@
 
 .textArea > h6 {
   margin: 0px;
+}
+
+.cardBadge {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  background-color: white;
+  padding: 5px 6px;
+  border-radius: 2px;
+  font-weight: 400px;
 }

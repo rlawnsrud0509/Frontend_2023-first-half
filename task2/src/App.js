@@ -14,6 +14,7 @@ function App() {
         country={data.location}
         title={data.title}
         price={data.price}
+        openSpots={data.openSpots}
       ></Card>
     );
   });
@@ -29,3 +30,9 @@ function App() {
 }
 
 export default App;
+
+//map 쓰는법
+//map으로 컴포넌트 복사하기 태크블로그 ㄱㄱ
+//props 일일이 다 넣기
+//item = {item} 넣기 차이점
+// {...item}넣기 차이점 태크
