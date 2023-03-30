@@ -28,7 +28,15 @@ function App() {
   return (
     <>
       <h1>{text}</h1>
-      <Test name="JunGyoung" hobby="gaming" mbti="isfp"></Test>
+      <Test name="JunGyoung" hobby="gaming" mbti="isfp" 군대={false}></Test>
+      <Test name="heesung" hobby="ddal" mbti="none" 군대={false}></Test>
+      <Test name="seojin" hobby="fifaOnline" mbti="none" 군대={false}></Test>
+      <Test name="jinam" hobby="eating" mbti="none" 군대={true}></Test>
+      <Test name="hyeonu" hobby="lol" mbti="none" 군대={false}></Test>
+      <Test name="명재" hobby="genshin impact" mbti="none" 군대={true}></Test>
+      {
+        //조건부 렌더링
+      }
     </>
   );
 }
