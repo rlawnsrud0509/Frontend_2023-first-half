@@ -36,3 +36,4 @@ export default App;
 //props 일일이 다 넣기
 //item = {item} 넣기 차이점
 // {...item}넣기 차이점 태크
+//{...item}이 제일 간단함ㅋ
