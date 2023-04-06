@@ -4,7 +4,6 @@ function Card({ img, rating, reviewCount, country, title, price, openSpots }) {
   let imgAddress = `/images/${img}.png`;
   let BadgeText;
   BadgeText = openSpots ? (BadgeText = "ONLINE") : (BadgeText = "SOLD OUT");
-  let Country;
 
   return (
     <div className="container3">
@@ -15,7 +14,7 @@ function Card({ img, rating, reviewCount, country, title, price, openSpots }) {
           <img src="/images/Star.png"></img> {rating}
           <span style={{ color: "#aaaaaa" }}>
             {" "}
-            ({reviewCount}).{country == "Online" ? (Country = "USA") : "Norway"}
+            ({reviewCount}).{country == "Online" ? (country = "USA") : "Norway"}
           </span>
         </h6>
         <h6>{title}</h6>

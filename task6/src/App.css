@@ -1,0 +1,19 @@
+.container {
+  width: 550px;
+  height: 550px;
+  position: relative;
+  box-sizing: border-box;
+  padding: 100px 36px 55px 36px;
+  display: flex;
+  justify-content: space-between;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  border: 1px solid black;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  font-family: "Karla";
+}
