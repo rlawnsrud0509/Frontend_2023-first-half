@@ -1,0 +1,12 @@
+.container {
+  width: 550px;
+  height: 704px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 40px;
+  padding-top: 90px;
+  box-sizing: border-box;
+}
