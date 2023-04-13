@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import "./style.css";
+import { useState } from "react";
 
-function App() {
+export default function App() {
+  const [messages, setMessages] = useState(["안녕", "뭐해"]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <h1>
+        {messages.length === 0
+          ? "You are all caught up!!"
+          : messages.length >= 2
+          ? `You have ${messages.length} unread messages.`
+          : "You have a unread message."}
+      </h1>
     </div>
   );
 }
-
-export default App;
