@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Data from "./memesData";
 
 export default function Body() {
@@ -17,6 +17,9 @@ export default function Body() {
   const changeText2 = (e) => {
     setTextBox2(e.target.value);
   };
+  useEffect(()=> {
+    fetch("https://api.imgflip.com/get_memes")
+  })
 
   return (
     <>
@@ -27,7 +30,11 @@ export default function Body() {
       </button>
       <div
         className="img111"
-        style={{ background: `url(${Data.data.memes[img].url})` }}
+        style={{
+          background: `url(${Data.data.memes[img].url})`,
+          // width: `${Data.data.memes[img].width}px`,
+          // height: `${Data.data.memes[img].height}px`,
+        }}
       >
         <h1 className="imageText">{textBox1.toUpperCase()}</h1>
         <h1 className="imageText">{textBox2.toUpperCase()}</h1>
