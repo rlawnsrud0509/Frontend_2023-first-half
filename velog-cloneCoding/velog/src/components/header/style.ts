@@ -3,18 +3,18 @@ import * as C from "style";
 
 export const HeaderContainer = styled.div<{ darkTheme: boolean }>`
   position: fixed;
-  left: 3vw;
-  width: 94vw;
+  left: 4vw;
+  width: 92vw;
   height: 64px;
 
   background-color: ${(props) =>
     props.darkTheme ? C.DarkTheme.bgColor : C.LightTheme.bgColor};
+
   color: ${(props) =>
     props.darkTheme ? C.DarkTheme.textColor : C.LightTheme.textColor};
 
   padding: 16px;
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
   align-items: center;
   color: white;
@@ -41,13 +41,12 @@ export const HeaderContainerOptions = styled.div`
   height: min-content;
 
   display: flex;
-  flex-direction: column;
+
   align-items: center;
 
   font-size: 1rem;
 `;
 
-export const Icon = styled.div<{ backgroundIcon: string }>`
+export const Icon = styled.div`
   margin-left: 1%;
-  background: url(${(props) => props.backgroundIcon});
 `;
