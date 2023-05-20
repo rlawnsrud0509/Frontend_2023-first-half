@@ -2,11 +2,10 @@ import * as C from "./style";
 import { useRecoilState } from "recoil";
 import { DarkTheme } from "state/index";
 import { useRef } from "react";
-import { StyledObject } from "styled-components";
 
 export default function Header() {
   const [darkTheme, setDarkTheme] = useRecoilState(DarkTheme);
-  const themeBtn = useRef<HTMLButtonElement>(null);
+  const themeBtn = useRef<any>(null);
 
   return (
     <>
@@ -17,15 +16,13 @@ export default function Header() {
 
         <C.HeaderContainerOptions>
           <C.ThemeBtn
-            onClick={() => {
-              setDarkTheme(!darkTheme);
-              themeBtn.current
-                ? (themeBtn.current.style.animation =
-                    "animation: ${ChangeTheme} ease-out 0.25s forwards;")
-                : "";
-            }}
             darkTheme={darkTheme}
             ref={themeBtn}
+            onClick={() => {
+              setDarkTheme(!darkTheme);
+              themeBtn.current.style.animation =
+                "${C.ChangeTheme} ease-out 0.25s forwards;";
+            }}
           ></C.ThemeBtn>
         </C.HeaderContainerOptions>
       </C.HeaderContainer>
