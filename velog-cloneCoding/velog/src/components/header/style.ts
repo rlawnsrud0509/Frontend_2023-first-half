@@ -48,7 +48,15 @@ export const HeaderContainerOptions = styled.div`
 
 const ChangeTheme = keyframes`
   from {
+    transform: rotateX(-270deg);
+    transform: scale(0);
+    opacity: 0;
+  }
 
+  to {
+    transform: rotateX(0deg);
+    transform: scale(1);
+    opacity: 1;
   }
 `;
 
@@ -59,15 +67,15 @@ export const ThemeBtn = styled.button<{ darkTheme: boolean }>`
   border: none;
   border-radius: 20px;  
 
-  background: url("${(props) => props.darkTheme ? C.DarkTheme.url : C.LightTheme.url}");
+  background: url(${(props) => props.darkTheme ? (C.DarkTheme.url) : C.LightTheme.url});
   background-position: center;
   background-size: cover;
 
   transition-timing-function: ease-out;
   transition-duration: 0.1s;
 
-  :hover {
-    animation: ${ChangeTheme};
+  &:hover {
+    cursor: pointer;
   }
 `;
 
