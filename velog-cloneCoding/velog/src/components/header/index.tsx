@@ -1,6 +1,6 @@
 import * as C from "./style";
 import { useRecoilState } from "recoil";
-import { DarkTheme } from "state";
+import { DarkTheme } from "state/index";
 
 export default function Header() {
   const [darkTheme, setDarkTheme] = useRecoilState(DarkTheme);
@@ -13,15 +13,12 @@ export default function Header() {
         </C.HeaderContainerTitle>
 
         <C.HeaderContainerOptions>
-          <C.Icon>
-            <button
+            <C.ThemeBtn
               onClick={() => {
                 setDarkTheme(!darkTheme);
               }}
-            >
-              눌러라
-            </button>
-          </C.Icon>
+              darkTheme={darkTheme}
+            ></C.ThemeBtn>
         </C.HeaderContainerOptions>
       </C.HeaderContainer>
     </>

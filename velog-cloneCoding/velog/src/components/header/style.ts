@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import * as C from "style";
 
 export const HeaderContainer = styled.div<{ darkTheme: boolean }>`
@@ -41,12 +41,33 @@ export const HeaderContainerOptions = styled.div`
   height: min-content;
 
   display: flex;
-
+  flex-direction: column;
   align-items: center;
-
   font-size: 1rem;
 `;
 
-export const Icon = styled.div`
-  margin-left: 1%;
+const ChangeTheme = keyframes`
+  from {
+
+  }
 `;
+
+export const ThemeBtn = styled.button<{ darkTheme: boolean }>`
+  width: 30px;
+  height: 30px;
+
+  border: none;
+  border-radius: 20px;  
+
+  background: url("${(props) => props.darkTheme ? C.DarkTheme.url : C.LightTheme.url}");
+  background-position: center;
+  background-size: cover;
+
+  transition-timing-function: ease-out;
+  transition-duration: 0.1s;
+
+  :hover {
+    animation: ${ChangeTheme};
+  }
+`;
+
