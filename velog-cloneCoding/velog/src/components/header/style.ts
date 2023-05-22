@@ -78,3 +78,11 @@ export const ThemeBtn = styled.button<{ darkTheme: boolean }>`
     cursor: pointer;
   }
 `;
+
+export const SearchBtn = styled.div`
+  width: 30px;
+  height: 30px;
+
+  border: none;
+  border-radius: 20px;
+`;
