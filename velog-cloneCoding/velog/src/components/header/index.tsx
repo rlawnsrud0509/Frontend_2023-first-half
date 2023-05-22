@@ -24,7 +24,9 @@ export default function Header() {
                 "${C.ChangeTheme} ease-out 0.25s forwards;";
             }}
           ></C.ThemeBtn>
-          <C.
+          <C.SearchBtn darkTheme={darkTheme}>
+            
+          </C.SearchBtn>
         </C.HeaderContainerOptions>
       </C.HeaderContainer>
     </>

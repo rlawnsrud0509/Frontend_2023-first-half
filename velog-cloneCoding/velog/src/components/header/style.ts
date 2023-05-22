@@ -41,7 +41,7 @@ export const HeaderContainerOptions = styled.div`
   height: min-content;
 
   display: flex;
-  flex-direction: column;
+  gap: 10px;
   align-items: center;
   font-size: 1rem;
 `;
@@ -65,7 +65,7 @@ export const ThemeBtn = styled.button<{ darkTheme: boolean }>`
   border: none;
   border-radius: 20px;
 
-  background: url(${(props) => props.darkTheme ? C.DarkTheme.url : C.LightTheme.url});
+  background: url(${(props) => props.darkTheme ? C.DarkTheme.ChangeBtnUrl : C.LightTheme.ChangeBtnUrl});
   background-position: center;
   background-size: cover;
 
@@ -79,10 +79,16 @@ export const ThemeBtn = styled.button<{ darkTheme: boolean }>`
   }
 `;
 
-export const SearchBtn = styled.div`
+export const SearchBtn = styled.div<{ darkTheme: boolean }>`
   width: 30px;
   height: 30px;
 
   border: none;
   border-radius: 20px;
+
+  background: url(${(props) => props.darkTheme ? C.DarkTheme.SearchBtnUrl : C.LightTheme.SearchBtnUrl});
+
+  &:hover {
+    cursor: pointer;
+  }
 `;

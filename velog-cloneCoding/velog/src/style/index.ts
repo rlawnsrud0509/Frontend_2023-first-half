@@ -1,11 +1,13 @@
 export const DarkTheme = {
   bgColor: "black",
   textColor: "white",
-  url: "images/header/DarkMode.png",
+  ChangeBtnUrl: "images/header/DarkMode.png",
+  SearchBtnUrl: "images/header/Search.png",
 };
 
 export const LightTheme = {
   bgColor: "white",
   textColor: "black",
-  url: "images/header/LightMode.png",
+  ChangeBtnUrl: "images/header/LightMode.png",
+  SearchBtnUrl: "images/header/Search.png",
 };
