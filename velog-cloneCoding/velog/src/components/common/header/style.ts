@@ -2,10 +2,12 @@ import styled, { keyframes } from "styled-components";
 import * as C from "style";
 
 export const HeaderContainer = styled.div<{ darkTheme: boolean }>`
-  position: fixed;
-  left: 4vw;
-  width: 92vw;
+  position: absolute;
+  width: 100vw;
   height: 64px;
+
+  top: 0;
+  left: 0;
 
   background-color: ${(props) =>
     props.darkTheme ? C.DarkTheme.bgColor : C.LightTheme.bgColor};
