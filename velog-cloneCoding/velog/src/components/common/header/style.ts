@@ -9,9 +9,6 @@ export const Container = styled.div<{ Theme: boolean }>`
   top: 0;
   left: 0;
 
-  background-color: ${(props) =>
-    props.Theme ? C.DarkTheme.bgColor : C.LightTheme.bgColor};
-
   color: ${(props) =>
     props.Theme ? C.DarkTheme.textColor : C.LightTheme.textColor};
 
@@ -81,9 +78,6 @@ export const ThemeBtn = styled.button<{ Theme: boolean }>`
   background-position: center;
   background-size: 30px;
   background-repeat: no-repeat;
-
-  transition-timing-function: ease-out;
-  transition-duration: 0.1s;
 
   animation: none;
 

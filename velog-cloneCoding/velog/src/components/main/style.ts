@@ -10,8 +10,6 @@ export const Container = styled.div`
   flex-direction: column;
   flex-wrap: wrap;
   box-sizing: border-box;
-
-  background-color: blue;
 `;
 
 export const topMenu = styled.div<{ Theme: boolean }>`
@@ -20,12 +18,6 @@ export const topMenu = styled.div<{ Theme: boolean }>`
 
   display: flex;
   justify-content: space-between;
-
-  background-color: ${(props) =>
-    props.Theme ? C.DarkTheme.bgColor : C.LightTheme.bgColor};
-
-  transition-timing-function: ease-out;
-  transition-duration: 0.1s;
 `;
 
 export const topMenuOption = styled.button<{ Theme: boolean }>`
