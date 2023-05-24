@@ -4,12 +4,14 @@ import * as C from "./components/index";
 
 function App() {
   return (
+    <body>
     <BrowserRouter>
       <C.Header />
       <Routes>
         <Route path="/" element={<P.MainPage />} />
       </Routes>
     </BrowserRouter>
+    </body>
   );
 }
 

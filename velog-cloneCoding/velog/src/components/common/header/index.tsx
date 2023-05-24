@@ -7,23 +7,23 @@ export default function Header() {
 
   return (
     <>
-      <C.HeaderContainer darkTheme={darkTheme}>
-        <C.HeaderContainerTitle darkTheme={darkTheme}>
-          velog
-        </C.HeaderContainerTitle>
+      <C.Container Theme={darkTheme}>
+        <C.HeaderContainer>
+          <C.HeaderContainerTitle Theme={darkTheme}>
+            velog
+          </C.HeaderContainerTitle>
 
-        <C.HeaderContainerOptions>
-          <C.ThemeBtn
-            darkTheme={darkTheme}
-            onClick={() => {
-              setDarkTheme(!darkTheme);
-            }}
-          ></C.ThemeBtn>
-          <C.SearchBtn darkTheme={darkTheme}>
-            
-          </C.SearchBtn>
-        </C.HeaderContainerOptions>
-      </C.HeaderContainer>
+          <C.HeaderContainerOptions>
+            <C.ThemeBtn
+              Theme={darkTheme}
+              onClick={() => {
+                setDarkTheme(!darkTheme);
+              }}
+            ></C.ThemeBtn>
+            <C.SearchBtn Theme={darkTheme}></C.SearchBtn>
+          </C.HeaderContainerOptions>
+        </C.HeaderContainer>
+      </C.Container>
     </>
   );
 }

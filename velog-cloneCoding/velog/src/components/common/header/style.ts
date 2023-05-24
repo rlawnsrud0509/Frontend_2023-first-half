@@ -1,7 +1,7 @@
 import styled, { keyframes } from "styled-components";
 import * as C from "style";
 
-export const HeaderContainer = styled.div<{ darkTheme: boolean }>`
+export const Container = styled.div<{ Theme: boolean }>`
   position: absolute;
   width: 100vw;
   height: 64px;
@@ -10,28 +10,38 @@ export const HeaderContainer = styled.div<{ darkTheme: boolean }>`
   left: 0;
 
   background-color: ${(props) =>
-    props.darkTheme ? C.DarkTheme.bgColor : C.LightTheme.bgColor};
+    props.Theme ? C.DarkTheme.bgColor : C.LightTheme.bgColor};
 
   color: ${(props) =>
-    props.darkTheme ? C.DarkTheme.textColor : C.LightTheme.textColor};
+    props.Theme ? C.DarkTheme.textColor : C.LightTheme.textColor};
 
-  padding: 16px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  color: white;
   box-sizing: border-box;
 
   transition-timing-function: ease-out;
   transition-duration: 0.1s;
 `;
 
-export const HeaderContainerTitle = styled.div<{ darkTheme: boolean }>`
+export const HeaderContainer = styled.div`
+  width: 90%;
+  height: 64px;
+
+  min-width: 1024px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+`;
+
+export const HeaderContainerTitle = styled.div<{ Theme: boolean }>`
   width: min-content;
   height: min-content;
 
   color: ${(props) =>
-    props.darkTheme ? C.DarkTheme.textColor : C.LightTheme.textColor};
+    props.Theme ? C.DarkTheme.textColor : C.LightTheme.textColor};
 
   font-size: 1.5rem;
   font-family: "Fira Code", monospace;
@@ -60,16 +70,16 @@ export const ChangeTheme = keyframes`
   }
 `;
 
-export const ThemeBtn = styled.button<{ darkTheme: boolean }>`
-  width: 40px;
-  height: 40px;
+export const ThemeBtn = styled.button<{ Theme: boolean }>`
+  width: 50px;
+  height: 50px;
 
   border: none;
-  border-radius: 20px;
+  border-radius: 25px;
 
-  background: url(${(props) => props.darkTheme ? C.DarkTheme.ChangeBtnUrl : C.LightTheme.ChangeBtnUrl});
+  background: url(${(props) => props.Theme ? C.DarkTheme.ChangeBtnUrl : C.LightTheme.ChangeBtnUrl});
   background-position: center;
-  background-size: 25px;
+  background-size: 30px;
   background-repeat: no-repeat;
 
   transition-timing-function: ease-out;
@@ -82,16 +92,16 @@ export const ThemeBtn = styled.button<{ darkTheme: boolean }>`
   }
 `;
 
-export const SearchBtn = styled.div<{ darkTheme: boolean }>`
-  width: 40px;
-  height: 40px;
+export const SearchBtn = styled.div<{ Theme: boolean }>`
+  width: 50px;
+  height: 0px;
 
   border: none;
-  border-radius: 20px;
+  border-radius: 25px;
 
-  background: url(${(props) => props.darkTheme ? C.DarkTheme.SearchBtnUrl : C.LightTheme.SearchBtnUrl});
+  background: url(${(props) => props.Theme ? C.DarkTheme.SearchBtnUrl : C.LightTheme.SearchBtnUrl});
   background-position: center;
-  background-size: 20px;
+  background-size: 25px;
   background-repeat: no-repeat;
 
   &:hover {
