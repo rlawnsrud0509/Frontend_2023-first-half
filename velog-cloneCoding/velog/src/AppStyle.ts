@@ -7,4 +7,7 @@ export const Body = styled.body<{ Theme: boolean }>`
 
   transition-timing-function: ease-out;
   transition-duration: 0.1s;
+
+  display: flex;
+  justify-content: center;
 `;

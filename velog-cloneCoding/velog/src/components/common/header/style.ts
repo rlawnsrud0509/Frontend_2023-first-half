@@ -10,7 +10,7 @@ export const Container = styled.div<{ Theme: boolean }>`
   left: 0;
 
   color: ${(props) =>
-    props.Theme ? C.DarkTheme.textColor : C.LightTheme.textColor};
+    props.Theme ? C.DarkTheme.textColor1 : C.LightTheme.textColor1};
 
   display: flex;
   justify-content: center;
@@ -38,7 +38,7 @@ export const HeaderContainerTitle = styled.div<{ Theme: boolean }>`
   height: min-content;
 
   color: ${(props) =>
-    props.Theme ? C.DarkTheme.textColor : C.LightTheme.textColor};
+    props.Theme ? C.DarkTheme.textColor1 : C.LightTheme.textColor1};
 
   font-size: 1.5rem;
   font-family: "Fira Code", monospace;
@@ -93,7 +93,8 @@ export const SearchBtn = styled.div<{ Theme: boolean }>`
   border: none;
   border-radius: 25px;
 
-  background: url(${(props) => props.Theme ? C.DarkTheme.SearchBtnUrl : C.LightTheme.SearchBtnUrl});
+  background: url(${(props) =>
+    props.Theme ? C.DarkTheme.SearchBtnUrl : C.LightTheme.SearchBtnUrl});
   background-position: center;
   background-size: 25px;
   background-repeat: no-repeat;
