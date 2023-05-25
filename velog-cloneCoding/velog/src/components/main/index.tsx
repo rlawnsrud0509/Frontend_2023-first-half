@@ -1,32 +1,48 @@
 import * as S from "./style";
-import { DarkTheme } from "state/index";
-import { useRecoilValue } from "recoil";
+import { DarkTheme, isOptionSelects } from "state/index";
+import { useRecoilState, useRecoilValue } from "recoil";
 import { useRef } from "react";
+import { Link } from "react-router-dom";
 
 export default function Main() {
   const darkTheme = useRecoilValue(DarkTheme);
+  const [isOptionSelected, setIsOptionSelected] =
+    useRecoilState<boolean[]>(isOptionSelects);
 
-  const options = useRef<any>([true, false]);
+  const tranding = useRef<HTMLButtonElement | null>(null);
+  const recent = useRef<HTMLButtonElement | null>(null);
 
   return (
     <S.Container>
       <S.topMenu>
         <div>
-          <S.ArrangeOptions
-            isOptionSelcted={options.current[0]}
-            ref={(el) => (options.current[0] = el)}
-            Theme={darkTheme}
-          >
-            트렌딩
-          </S.ArrangeOptions>
-          <S.ArrangeOptions
-            isOptionSelcted={options.current[1]}
-            ref={options}
-            Theme={darkTheme}
-          >
-            트렌딩
-          </S.ArrangeOptions>
-          <S.SelectionTag>이번 주</S.SelectionTag>
+          <Link to="/">
+            <S.ArrangeOptions
+              selected={isOptionSelected[0]}
+              ref={tranding}
+              Theme={darkTheme}
+              onClick={() => {
+                setIsOptionSelected([true, false]);
+              }}
+            >
+              트렌딩
+            </S.ArrangeOptions>
+          </Link>
+          <Link to="/recent">
+            <S.ArrangeOptions
+              selected={isOptionSelected[1]}
+              ref={recent}
+              Theme={darkTheme}
+              onClick={() => {
+                setIsOptionSelected([false, true]);
+              }}
+            >
+              최신
+            </S.ArrangeOptions>
+          </Link>
+          <S.SelectionTag>
+            <S.SelectionTagOptions>이번 주</S.SelectionTagOptions>
+          </S.SelectionTag>
         </div>
         <S.SelectionTag></S.SelectionTag>
       </S.topMenu>

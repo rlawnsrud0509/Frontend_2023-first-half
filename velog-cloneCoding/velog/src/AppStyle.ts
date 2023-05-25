@@ -9,5 +9,7 @@ export const Body = styled.body<{ Theme: boolean }>`
   transition-duration: 0.1s;
 
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 `;

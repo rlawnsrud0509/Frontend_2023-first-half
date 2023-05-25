@@ -2,12 +2,8 @@ import styled, { keyframes } from "styled-components";
 import * as C from "style";
 
 export const Container = styled.div<{ Theme: boolean }>`
-  position: absolute;
-  width: 100vw;
+  width: 90vw;
   height: 64px;
-
-  top: 0;
-  left: 0;
 
   color: ${(props) =>
     props.Theme ? C.DarkTheme.textColor1 : C.LightTheme.textColor1};
@@ -22,7 +18,7 @@ export const Container = styled.div<{ Theme: boolean }>`
 `;
 
 export const HeaderContainer = styled.div`
-  width: 90%;
+  width: 100%;
   height: 64px;
 
   min-width: 1024px;
@@ -93,8 +89,7 @@ export const SearchBtn = styled.div<{ Theme: boolean }>`
   border: none;
   border-radius: 25px;
 
-  background: url(${(props) =>
-    props.Theme ? C.DarkTheme.SearchBtnUrl : C.LightTheme.SearchBtnUrl});
+  background: url(${(props) => props.Theme ? C.DarkTheme.SearchBtnUrl : C.LightTheme.SearchBtnUrl});
   background-position: center;
   background-size: 25px;
   background-repeat: no-repeat;
