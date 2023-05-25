@@ -40,11 +40,10 @@ export default function Main() {
               최신
             </S.ArrangeOptions>
           </Link>
-          <S.SelectionTag>
-            <S.SelectionTagOptions>이번 주</S.SelectionTagOptions>
-          </S.SelectionTag>
+          <S.SelectionTag Theme={darkTheme}>이번 주</S.SelectionTag>
+          <S.SelectedLine Theme={darkTheme}></S.SelectedLine>
         </div>
-        <S.SelectionTag></S.SelectionTag>
+        <S.SelectionTag Theme={darkTheme}>wef</S.SelectionTag>
       </S.topMenu>
     </S.Container>
   );

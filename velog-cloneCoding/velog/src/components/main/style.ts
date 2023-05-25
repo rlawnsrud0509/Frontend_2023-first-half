@@ -42,6 +42,35 @@ export const ArrangeOptions = styled.button<{
   border: none;
 `;
 
-export const SelectionTag = styled.div``;
+export const SelectedLine = styled.div<{ Theme: boolean }>`
+  width: 112px;
+  height: 2px;
+
+  position: absolute;
+  bottom: 0px;
+
+  background-color: ${(props) =>
+    props.Theme ? C.DarkTheme.bgColor : C.LightTheme.bgColor};
+`;
+
+export const SelectionTag = styled.div<{
+  Theme: boolean;
+}>`
+  width: 112px;
+  height: 48px;
+  padding: 0px 16px 0px 16px;
+
+  font-size: 1.25rem;
+  color: ${(props) =>
+    props.Theme ? C.DarkTheme.textColor1 : C.LightTheme.textColor1};
+  background-color: ${(props) =>
+    props.Theme ? C.DarkTheme.bgColor : C.LightTheme.bgColor};
+
+  transition-timing-function: ease-out;
+  transition-duration: 0.1s;
+
+  text-align: center;
+  border: none;
+`;
 
 export const SelectionTagOptions = styled.div``;
