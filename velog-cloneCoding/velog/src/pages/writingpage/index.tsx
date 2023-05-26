@@ -1,10 +1,15 @@
+import { ReactNode } from "react";
 import * as C from "../../components/index";
 
-export default function WritingPage() {
+interface PropsType {
+  children: ReactNode;
+}
+
+export default function WritingPage({ children }: PropsType) {
   return (
     <>
       <C.Header />
-      <C.Main />
+      {children}
     </>
   );
 }
