@@ -14,11 +14,11 @@ function App() {
         <Routes>
           <Route
             path="/"
-            element={<P.MainPage children={<C.Main></C.Main>} />}
+            element={<P.MainPage children={<C.Main />} />}
           ></Route>
           <Route
             path="/recent"
-            element={<P.MainPage children={<C.Main></C.Main>} />}
+            element={<P.MainPage children={<C.Main />} />}
           ></Route>
         </Routes>
       </BrowserRouter>

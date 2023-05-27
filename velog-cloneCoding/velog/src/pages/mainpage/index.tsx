@@ -5,7 +5,7 @@ interface PropsType {
   children: ReactNode;
 }
 
-export default function WritingPage({ children }: PropsType) {
+export default function MainPage({ children }: PropsType) {
   return (
     <>
       <C.Header />

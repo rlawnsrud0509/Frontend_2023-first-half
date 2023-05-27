@@ -41,7 +41,9 @@ export default function Main() {
               최신
             </ArrangeOptions>
           </Link>
-          <SelectionTag theme={darkTheme}>이번 주</SelectionTag>
+
+          {isOptionSelected[0] && <SelectionTag theme={darkTheme}>이번 주</SelectionTag>}
+
           <SelectedLine theme={darkTheme}></SelectedLine>
         </div>
         <SelectionTag theme={darkTheme}>wef</SelectionTag>
@@ -79,7 +81,13 @@ const ArrangeOptions = styled.button<{
 
   font-size: 1.25rem;
   color: ${(props) =>
-    props.theme ? C.DarkTheme.textColor1 : C.LightTheme.textColor1};
+    props.selected
+      ? props.theme
+        ? C.DarkTheme.textColor1
+        : C.LightTheme.textColor1
+      : props.theme
+      ? C.DarkTheme.textColor2
+      : C.LightTheme.textColor2};
   background-color: ${(props) =>
     props.theme ? C.DarkTheme.bgColor : C.LightTheme.bgColor};
   font-weight: ${(props) => (props.selected ? 600 : 500)};
