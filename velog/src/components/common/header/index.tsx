@@ -84,7 +84,8 @@ const ThemeBtn = styled.button<{ theme: boolean }>`
   border: none;
   border-radius: 25px;
 
-  background: url(${(props) => props.theme ? C.DarkTheme.BtnUrl1 : C.LightTheme.BtnUrl1});
+  background: url(${(props) =>
+    props.theme ? C.DarkTheme.BtnUrl1 : C.LightTheme.BtnUrl1});
   background-position: center;
   background-size: 30px;
   background-repeat: no-repeat;
@@ -103,9 +104,10 @@ const SearchBtn = styled.div<{ theme: boolean }>`
   border: none;
   border-radius: 25px;
 
-  background: url(${(props) => props.theme ? C.DarkTheme.BtnUrl2 : C.LightTheme.BtnUrl2});
+  background: url(${(props) =>
+    props.theme ? C.DarkTheme.BtnUrl2 : C.LightTheme.BtnUrl2});
   background-position: center;
-  background-size: 25px;
+  background-size: 20px;
   background-repeat: no-repeat;
 
   &:hover {
