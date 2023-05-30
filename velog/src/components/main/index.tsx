@@ -16,7 +16,7 @@ export default function Main() {
   return (
     <Container>
       <TopMenu>
-        <div>
+        <GrowpOptions>
           <Link to="/">
             <ArrangeOptions
               selected={isOptionSelected[0]}
@@ -42,10 +42,12 @@ export default function Main() {
             </ArrangeOptions>
           </Link>
 
-          {isOptionSelected[0] && <SelectionTag theme={darkTheme}>이번 주</SelectionTag>}
+          {isOptionSelected[0] && (
+            <SelectionTag theme={darkTheme}>이번 주</SelectionTag>
+          )}
 
           <SelectedLine theme={darkTheme}></SelectedLine>
-        </div>
+        </GrowpOptions>
         <SelectionTag theme={darkTheme}>wef</SelectionTag>
       </TopMenu>
     </Container>
@@ -69,6 +71,13 @@ const TopMenu = styled.div`
 
   display: flex;
   justify-content: space-between;
+`;
+
+const GrowpOptions = styled.div`
+  width: max-content;
+  height: min-content;
+  display: flex;
+  align-items: center;
 `;
 
 const ArrangeOptions = styled.button<{
@@ -110,18 +119,20 @@ const SelectedLine = styled.div<{ theme: boolean }>`
     props.theme ? C.DarkTheme.bgColor : C.LightTheme.bgColor};
 `;
 
-const SelectionTag = styled.div<{
-  theme: boolean;
-}>`
-  width: 112px;
-  height: 48px;
-  padding: 0px 16px 0px 16px;
+const SelectionTag = styled.div<{ theme: boolean }>`
+  width: 72px;
+  height: 32px;
+  line-height: 32px;
 
-  font-size: 1.25rem;
+  background-color: ${(props) =>
+    props.theme ? C.DarkTheme.BtnColor1 : C.LightTheme.BtnColor1};
   color: ${(props) =>
     props.theme ? C.DarkTheme.textColor1 : C.LightTheme.textColor1};
-  background-color: ${(props) =>
-    props.theme ? C.DarkTheme.bgColor : C.LightTheme.bgColor};
+
+  padding: 0px 16px 0px 16px;
+
+  font-size: 1rem;
+  font-weight: 600;
 
   transition-timing-function: ease-out;
   transition-duration: 0.1s;

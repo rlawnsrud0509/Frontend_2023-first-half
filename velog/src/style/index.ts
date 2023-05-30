@@ -4,6 +4,7 @@ export const DarkTheme = {
   textColor2: "#ACACAC",
   BtnUrl1: "images/header/DarkMode.png",
   BtnUrl2: "images/header/Search.png",
+  BtnColor1: "#1E1E1E",
 };
 
 export const LightTheme = {
@@ -12,4 +13,5 @@ export const LightTheme = {
   textColor2: "#595959",
   BtnUrl1: "images/header/LightMode.png",
   BtnUrl2: "images/header/Search.png",
+  BtnColor1: "#FFFFFF",
 };
