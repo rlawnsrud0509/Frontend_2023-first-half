@@ -76,6 +76,9 @@ const TopMenu = styled.div`
 const GrowpOptions = styled.div`
   width: max-content;
   height: min-content;
+
+  position: relative;
+
   display: flex;
   align-items: center;
 `;
@@ -114,9 +117,12 @@ const SelectedLine = styled.div<{ theme: boolean }>`
 
   position: absolute;
   bottom: 0px;
+  left: 0;
 
   background-color: ${(props) =>
-    props.theme ? C.DarkTheme.bgColor : C.LightTheme.bgColor};
+    props.theme ? C.DarkTheme.LineColor : C.LightTheme.LineColor};
+
+  z-index: 1;
 `;
 
 const SelectionTag = styled.div<{ theme: boolean }>`
