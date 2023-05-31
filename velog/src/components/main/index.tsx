@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import * as C from "style";
+import { keyframes } from "styled-components";
 
 export default function Main() {
   const darkTheme = useRecoilValue(DarkTheme);
@@ -46,7 +47,10 @@ export default function Main() {
             <SelectionTag theme={darkTheme}>이번 주</SelectionTag>
           )}
 
-          <SelectedLine theme={darkTheme}></SelectedLine>
+          <SelectedLine
+            theme={darkTheme}
+            selected={isOptionSelected}
+          ></SelectedLine>
         </GrowpOptions>
         <SelectionTag theme={darkTheme}>wef</SelectionTag>
       </TopMenu>
@@ -111,16 +115,33 @@ const ArrangeOptions = styled.button<{
   border: none;
 `;
 
-const SelectedLine = styled.div<{ theme: boolean }>`
+const moveLine = (isLeftSelected: boolean) => keyframes`
+  from {
+    ${isLeftSelected ? "left: 112px" : "left: 0px"};
+  }
+
+  to {
+    ${isLeftSelected ? "left: 0px" : "left: 112px"};
+  }
+`;
+
+const SelectedLine = styled.div<{ theme: boolean; selected: boolean[] }>`
   width: 112px;
   height: 2px;
 
   position: absolute;
   bottom: 0px;
-  left: 0;
 
   background-color: ${(props) =>
     props.theme ? C.DarkTheme.LineColor : C.LightTheme.LineColor};
+
+  animation: ${(props) =>
+    props.selected[0]
+      ? moveLine(props.selected[0])
+      : moveLine(props.selected[1])};
+  animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+  animation-fill-mode: forwards;
+  animation-duration: 0.45s;
 
   z-index: 1;
 `;
