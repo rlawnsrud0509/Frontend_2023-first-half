@@ -97,17 +97,21 @@ const ArrangeOptions = styled.button<{
   padding: 0px 16px 0px 16px;
 
   font-size: 1.25rem;
-  color: ${(props) => C[props.mood].textColor1};
+  color: ${(props) =>
+    props.selected === props.option
+      ? C[props.mood].textColor1
+      : C[props.mood].textColor2};
 
   background-color: ${(props) =>
-    props.theme ? C.DarkTheme.bgColor : C.LightTheme.bgColor};
-  font-weight: ${(props) => (props.selected === "tranding" ? 600 : 500)};
+    props.theme ? C[props.mood].bgColor : C[props.mood].bgColor};
+  font-weight: ${(props) => (props.selected === props.option ? 600 : 500)};
 
   transition-timing-function: ease-out;
   transition-duration: 0.1s;
 
   text-align: center;
   border: none;
+  cursor: pointer;
 `;
 
 const moveLine = (isLeftSelected: boolean) => keyframes`
@@ -138,7 +142,7 @@ const SelectedLine = styled.div<{
       : moveLine(props.selected === "recent")};
   animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
   animation-fill-mode: forwards;
-  animation-duration: 0.45s;
+  animation-duration: 0.5s;
 
   z-index: 1;
 `;
