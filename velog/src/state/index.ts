@@ -1,12 +1,14 @@
 import { atom } from "recoil";
 import { v1 } from "uuid";
 
-export const DarkTheme = atom<boolean>({
-  key: `theme/${v1()}`,
-  default: true,
+export type themeType = "DarkTheme" | "LightTheme";
+
+export const mood = atom<themeType>({
+  key: `theme`,
+  default: "DarkTheme",
 });
 
-export const isOptionSelects = atom<boolean[]>({
-  key: `isoptionselects/${v1()}`,
-  default: [true, false],
+export const selectedOptions = atom({
+  key: `selectedOptions/${v1()}`,
+  default: "tranding",
 });

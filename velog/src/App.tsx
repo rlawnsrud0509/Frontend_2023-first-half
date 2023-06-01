@@ -1,15 +1,16 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import * as P from "./pages/index";
-import * as S from "./AppStyle";
 import * as C from "components/index";
 import { useRecoilValue } from "recoil";
-import { DarkTheme } from "state/index";
+import { mood, themeType } from "state/index";
+import styled from "styled-components";
+import * as S from "style";
 
-function App() {
-  const darkTheme = useRecoilValue(DarkTheme);
+export default function App() {
+  const theme = useRecoilValue(mood);
 
   return (
-    <S.Body theme={darkTheme}>
+    <Body mood={theme}>
       <BrowserRouter>
         <Routes>
           <Route
@@ -22,9 +23,18 @@ function App() {
           ></Route>
         </Routes>
       </BrowserRouter>
-    </S.Body>
+    </Body>
   );
 }
 
-export default App;
+const Body = styled.body<{ mood: themeType }>`
+  background-color: ${(props) => S[props.mood].bgColor};
 
+  transition-timing-function: ease-out;
+  transition-duration: 0.1s;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+`;

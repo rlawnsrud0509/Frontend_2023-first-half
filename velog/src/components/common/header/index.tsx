@@ -1,25 +1,25 @@
 import { useRecoilState } from "recoil";
-import { DarkTheme } from "state/index";
+import { mood, themeType } from "state/index";
 import styled from "styled-components";
 import * as C from "style";
 
 export default function Header() {
-  const [darkTheme, setDarkTheme] = useRecoilState(DarkTheme);
+  const [theme, setTheme] = useRecoilState(mood);
 
   return (
     <>
-      <Container theme={darkTheme}>
+      <Container mood={theme}>
         <HeaderContainer>
-          <HeaderContainerTitle theme={darkTheme}>velog</HeaderContainerTitle>
+          <HeaderContainerTitle mood={theme}>velog</HeaderContainerTitle>
 
           <HeaderContainerOptions>
             <ThemeBtn
-              theme={darkTheme}
+              mood={theme}
               onClick={() => {
-                setDarkTheme(!darkTheme);
+                setTheme(theme === "DarkTheme" ? "LightTheme" : "DarkTheme");
               }}
             ></ThemeBtn>
-            <SearchBtn theme={darkTheme}></SearchBtn>
+            <SearchBtn mood={theme}></SearchBtn>
           </HeaderContainerOptions>
         </HeaderContainer>
       </Container>
@@ -27,12 +27,11 @@ export default function Header() {
   );
 }
 
-const Container = styled.div<{ theme: boolean }>`
+const Container = styled.div<{ mood: themeType }>`
   width: 90vw;
   height: 64px;
 
-  color: ${(props) =>
-    props.theme ? C.DarkTheme.textColor1 : C.LightTheme.textColor1};
+  color: ${(props) => C[props.mood].textColor1};
 
   display: flex;
   justify-content: center;
@@ -55,12 +54,11 @@ const HeaderContainer = styled.div`
   color: white;
 `;
 
-const HeaderContainerTitle = styled.div<{ theme: boolean }>`
+const HeaderContainerTitle = styled.div<{ mood: themeType }>`
   width: min-content;
   height: min-content;
 
-  color: ${(props) =>
-    props.theme ? C.DarkTheme.textColor1 : C.LightTheme.textColor1};
+  color: ${(props) => C[props.mood].textColor1};
 
   font-size: 1.5rem;
   font-family: "Fira Code", monospace;
@@ -77,14 +75,14 @@ const HeaderContainerOptions = styled.div`
   font-size: 1rem;
 `;
 
-const ThemeBtn = styled.button<{ theme: boolean }>`
+const ThemeBtn = styled.button<{ mood: themeType }>`
   width: 50px;
   height: 50px;
 
   border: none;
   border-radius: 25px;
 
-  background: url(${(props) => props.theme ? C.DarkTheme.BtnUrl1 : C.LightTheme.BtnUrl1});
+  background: url(${(props) => C[props.mood].BtnUrl1});
   background-position: center;
   background-size: 30px;
   background-repeat: no-repeat;
@@ -96,14 +94,14 @@ const ThemeBtn = styled.button<{ theme: boolean }>`
   }
 `;
 
-const SearchBtn = styled.div<{ theme: boolean }>`
+const SearchBtn = styled.div<{ mood: themeType }>`
   width: 50px;
   height: 0px;
 
   border: none;
   border-radius: 25px;
 
-  background: url(${(props) => props.theme ? C.DarkTheme.BtnUrl2 : C.LightTheme.BtnUrl2});
+  background: url(${(props) => C[props.mood].BtnUrl2});
   background-position: center;
   background-size: 20px;
   background-repeat: no-repeat;

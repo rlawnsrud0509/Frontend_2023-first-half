@@ -1,4 +1,4 @@
-import { DarkTheme, isOptionSelects } from "state/index";
+import { mood, selectedOptions, themeType } from "state/index";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
@@ -7,9 +7,8 @@ import * as C from "style";
 import { keyframes } from "styled-components";
 
 export default function Main() {
-  const darkTheme = useRecoilValue(DarkTheme);
-  const [isOptionSelected, setIsOptionSelected] =
-    useRecoilState<boolean[]>(isOptionSelects);
+  const theme = useRecoilValue(mood);
+  const [selectedOption, setSelectedOption] = useRecoilState(selectedOptions);
 
   const tranding = useRef<HTMLButtonElement | null>(null);
   const recent = useRef<HTMLButtonElement | null>(null);
@@ -20,11 +19,12 @@ export default function Main() {
         <GrowpOptions>
           <Link to="/">
             <ArrangeOptions
-              selected={isOptionSelected[0]}
+              selected={selectedOption}
               ref={tranding}
-              theme={darkTheme}
+              mood={theme}
+              option="tranding"
               onClick={() => {
-                setIsOptionSelected([true, false]);
+                setSelectedOption("tranding");
               }}
             >
               트렌딩
@@ -32,27 +32,27 @@ export default function Main() {
           </Link>
           <Link to="/recent">
             <ArrangeOptions
-              selected={isOptionSelected[1]}
+              selected={selectedOption}
               ref={recent}
-              theme={darkTheme}
+              mood={theme}
+              option="recent"
               onClick={() => {
-                setIsOptionSelected([false, true]);
+                setSelectedOption("recent");
               }}
             >
               최신
             </ArrangeOptions>
           </Link>
 
-          {isOptionSelected[0] && (
-            <SelectionTag theme={darkTheme}>이번 주</SelectionTag>
+          {selectedOption === "tranding" ? (
+            <SelectionTag mood={theme}>이번 주</SelectionTag>
+          ) : (
+            ""
           )}
 
-          <SelectedLine
-            theme={darkTheme}
-            selected={isOptionSelected}
-          ></SelectedLine>
+          <SelectedLine mood={theme} selected={selectedOption}></SelectedLine>
         </GrowpOptions>
-        <SelectionTag theme={darkTheme}>wef</SelectionTag>
+        <SelectionTag mood={theme}>wef</SelectionTag>
       </TopMenu>
     </Container>
   );
@@ -88,25 +88,20 @@ const GrowpOptions = styled.div`
 `;
 
 const ArrangeOptions = styled.button<{
-  theme: boolean;
-  selected: boolean;
+  mood: themeType;
+  selected: string;
+  option: string;
 }>`
   width: 112px;
   height: 48px;
   padding: 0px 16px 0px 16px;
 
   font-size: 1.25rem;
-  color: ${(props) =>
-    props.selected
-      ? props.theme
-        ? C.DarkTheme.textColor1
-        : C.LightTheme.textColor1
-      : props.theme
-      ? C.DarkTheme.textColor2
-      : C.LightTheme.textColor2};
+  color: ${(props) => C[props.mood].textColor1};
+
   background-color: ${(props) =>
     props.theme ? C.DarkTheme.bgColor : C.LightTheme.bgColor};
-  font-weight: ${(props) => (props.selected ? 600 : 500)};
+  font-weight: ${(props) => (props.selected === "tranding" ? 600 : 500)};
 
   transition-timing-function: ease-out;
   transition-duration: 0.1s;
@@ -125,20 +120,22 @@ const moveLine = (isLeftSelected: boolean) => keyframes`
   }
 `;
 
-const SelectedLine = styled.div<{ theme: boolean; selected: boolean[] }>`
+const SelectedLine = styled.div<{
+  mood: themeType;
+  selected: string;
+}>`
   width: 112px;
   height: 2px;
 
   position: absolute;
   bottom: 0px;
 
-  background-color: ${(props) =>
-    props.theme ? C.DarkTheme.LineColor : C.LightTheme.LineColor};
+  background-color: ${(props) => C[props.mood].LineColor};
 
   animation: ${(props) =>
-    props.selected[0]
-      ? moveLine(props.selected[0])
-      : moveLine(props.selected[1])};
+    props.selected
+      ? moveLine(props.selected === "tranding")
+      : moveLine(props.selected === "recent")};
   animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
   animation-fill-mode: forwards;
   animation-duration: 0.45s;
@@ -146,15 +143,13 @@ const SelectedLine = styled.div<{ theme: boolean; selected: boolean[] }>`
   z-index: 1;
 `;
 
-const SelectionTag = styled.div<{ theme: boolean }>`
+const SelectionTag = styled.div<{ mood: themeType }>`
   width: 72px;
   height: 32px;
   line-height: 32px;
 
-  background-color: ${(props) =>
-    props.theme ? C.DarkTheme.BtnColor1 : C.LightTheme.BtnColor1};
-  color: ${(props) =>
-    props.theme ? C.DarkTheme.textColor1 : C.LightTheme.textColor1};
+  background-color: ${(props) => C[props.mood].BtnColor1};
+  color: ${(props) => C[props.mood].textColor1};
 
   padding: 0px 16px 0px 16px;
 
