@@ -16,7 +16,7 @@ const Login = () => {
     <GoogleLogin
       onSuccess={onSuccess}
       onError={() => {
-        console.log("로그인 실패");
+        console.log("로그인 실패.........");
       }}
     ></GoogleLogin>
   );
