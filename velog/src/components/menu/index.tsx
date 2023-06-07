@@ -44,10 +44,8 @@ export default function Main() {
             </ArrangeOptions>
           </Link>
 
-          {selectedOption === "tranding" ? (
+          {selectedOption === "tranding" && (
             <SelectionTag mood={theme}>이번 주</SelectionTag>
-          ) : (
-            ""
           )}
 
           <SelectedLine mood={theme} selected={selectedOption}></SelectedLine>
@@ -67,6 +65,8 @@ const Container = styled.div`
   flex-direction: column;
   flex-wrap: wrap;
   box-sizing: border-box;
+
+  margin-bottom: 25px;
 `;
 
 const TopMenu = styled.div`
@@ -99,11 +99,11 @@ const ArrangeOptions = styled.button<{
   font-size: 1.25rem;
   color: ${(props) =>
     props.selected === props.option
-      ? C[props.mood].textColor1
-      : C[props.mood].textColor2};
+      ? C[props.mood].TextColor1
+      : C[props.mood].TextColor2};
 
   background-color: ${(props) =>
-    props.theme ? C[props.mood].bgColor : C[props.mood].bgColor};
+    props.theme ? C[props.mood].BgColor : C[props.mood].BgColor};
   font-weight: ${(props) => (props.selected === props.option ? 600 : 500)};
 
   transition-timing-function: ease-out;
@@ -134,7 +134,7 @@ const SelectedLine = styled.div<{
   position: absolute;
   bottom: 0px;
 
-  background-color: ${(props) => C[props.mood].LineColor};
+  background-color: ${(props) => C[props.mood].LineColor2};
 
   animation: ${(props) =>
     props.selected
@@ -153,7 +153,7 @@ const SelectionTag = styled.div<{ mood: themeType }>`
   line-height: 32px;
 
   background-color: ${(props) => C[props.mood].BtnColor1};
-  color: ${(props) => C[props.mood].textColor1};
+  color: ${(props) => C[props.mood].TextColor1};
 
   padding: 0px 16px 0px 16px;
 

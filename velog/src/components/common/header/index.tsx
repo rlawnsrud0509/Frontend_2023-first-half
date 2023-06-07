@@ -31,7 +31,7 @@ const Container = styled.div<{ mood: themeType }>`
   width: 90vw;
   height: 64px;
 
-  color: ${(props) => C[props.mood].textColor1};
+  color: ${(props) => C[props.mood].TextColor1};
 
   display: flex;
   justify-content: center;
@@ -58,7 +58,7 @@ const HeaderContainerTitle = styled.div<{ mood: themeType }>`
   width: min-content;
   height: min-content;
 
-  color: ${(props) => C[props.mood].textColor1};
+  color: ${(props) => C[props.mood].TextColor1};
 
   font-size: 1.5rem;
   font-family: "Fira Code", monospace;

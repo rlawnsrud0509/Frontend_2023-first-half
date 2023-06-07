@@ -19,7 +19,8 @@ export default function App() {
               <P.MainPage
                 children={
                   <>
-                    <C.Main /> <C.Post />
+                    <C.Main />
+                    <C.Post />
                   </>
                 }
               />
@@ -36,7 +37,7 @@ export default function App() {
 }
 
 const Body = styled.body<{ mood: themeType }>`
-  background-color: ${(props) => S[props.mood].bgColor};
+  background-color: ${(props) => S[props.mood].BgColor};
 
   transition-timing-function: ease-out;
   transition-duration: 0.1s;
