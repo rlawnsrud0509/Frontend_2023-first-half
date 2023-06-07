@@ -15,7 +15,15 @@ export default function App() {
         <Routes>
           <Route
             path="/"
-            element={<P.MainPage children={<C.Main />} />}
+            element={
+              <P.MainPage
+                children={
+                  <>
+                    <C.Main /> <C.Post />
+                  </>
+                }
+              />
+            }
           ></Route>
           <Route
             path="/recent"
