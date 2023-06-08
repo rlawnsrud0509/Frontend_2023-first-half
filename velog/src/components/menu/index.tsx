@@ -57,16 +57,13 @@ export default function Main() {
 }
 
 const Container = styled.div`
-  width: 90vw;
+  width: 91vw;
   height: max-content;
 
   display: flex;
-  margin-top: 32px;
   flex-direction: column;
   flex-wrap: wrap;
   box-sizing: border-box;
-
-  margin-bottom: 25px;
 `;
 
 const TopMenu = styled.div`
@@ -129,7 +126,7 @@ const SelectedLine = styled.div<{
   selected: string;
 }>`
   width: 112px;
-  height: 2px;
+  height: 1.5px;
 
   position: absolute;
   bottom: 0px;

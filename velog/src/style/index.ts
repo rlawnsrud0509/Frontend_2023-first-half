@@ -5,8 +5,8 @@ export const DarkTheme = {
   BtnUrl1: "images/header/DarkMode.png",
   BtnUrl2: "images/header/Search.png",
   BtnColor1: "#1E1E1E",
-  LineColor1: "#E0E0E0",
-  LineColor2: "#2A2A2A",
+  LineColor1: "#2A2A2A",
+  LineColor2: "#343A40",
   ShadowColor: "#191919",
 };
 
@@ -17,7 +17,7 @@ export const LightTheme = {
   BtnUrl1: "images/header/LightMode.png",
   BtnUrl2: "images/header/Search.png",
   BtnColor1: "#FFFFFF",
-  LineColor1: "#343A40",
-  LineColor2: "#DEE2E6",
+  LineColor1: "#DEE2E6",
+  LineColor2: "#E0E0E0",
   ShadowColor: "#E1E1E1",
 };

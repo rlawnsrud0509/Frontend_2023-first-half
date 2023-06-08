@@ -19,7 +19,12 @@ export default function App() {
               <P.MainPage
                 children={
                   <>
-                    <C.Main />
+                    <C.Post />
+                    <C.Post />
+                    <C.Post />
+                    <C.Post />
+                    <C.Post />
+                    <C.Post />
                     <C.Post />
                   </>
                 }
@@ -28,7 +33,7 @@ export default function App() {
           ></Route>
           <Route
             path="/recent"
-            element={<P.MainPage children={<C.Main />} />}
+            element={<P.MainPage children={<></>} />}
           ></Route>
         </Routes>
       </BrowserRouter>
@@ -39,11 +44,14 @@ export default function App() {
 const Body = styled.body<{ mood: themeType }>`
   background-color: ${(props) => S[props.mood].BgColor};
 
+  height: max-content;
+  width: 100vw;
+
   transition-timing-function: ease-out;
   transition-duration: 0.1s;
 
+  box-sizing: border-box;
+
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
 `;

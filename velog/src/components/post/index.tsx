@@ -8,7 +8,7 @@ export default function Post() {
 
   return (
     <Container mood={theme}>
-      <ImgSection background="fe"></ImgSection>
+      <ImgSection background="images/sample/sampleImg.png"></ImgSection>
       <ParagraphSection>
         <Title mood={theme}>알고리즘 문제풀이에 대한 이야기</Title>
         <Paragraph>
@@ -41,8 +41,10 @@ const Container = styled.div<{ mood: themeType }>`
   transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
   transition-duration: 0.5s;
 
+  overflow: hidden;
+
   &:hover {
-    margin: -5px;
+    margin: -5px 0px 0px 0px;
     box-shadow: 0px 10px 10px ${(props) => C[props.mood].ShadowColor};
   }
 `;
@@ -50,6 +52,10 @@ const Container = styled.div<{ mood: themeType }>`
 const ImgSection = styled.div<{ background: string }>`
   width: 320px;
   height: 167px;
+
+  background: url(${(props) => props.background});
+
+  background-size: cover;
 `;
 
 const ParagraphSection = styled.div`

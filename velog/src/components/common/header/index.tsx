@@ -28,7 +28,7 @@ export default function Header() {
 }
 
 const Container = styled.div<{ mood: themeType }>`
-  width: 90vw;
+  width: 91vw;
   height: 64px;
 
   color: ${(props) => C[props.mood].TextColor1};
