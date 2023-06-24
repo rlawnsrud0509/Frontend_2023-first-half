@@ -4,8 +4,8 @@ import axios from "axios";
 const Login = () => {
   const onSuccess = (res: any) => {
     console.log("로그인 성공~~!", res.credential);
-
-    axios.post("ocalhost:8080/api/login/google", {
+      ``
+    axios.post("localhost:8080/api/login/google", {
       token: res.credential,
     });
   };
