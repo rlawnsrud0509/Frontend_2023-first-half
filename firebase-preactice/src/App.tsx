@@ -75,7 +75,6 @@ function App() {
         {data.userId} {data.userName} {data.userFootSize}
       </p>
       <GetGoogleLogin />
-      <GetGoogleLogout />
     </>
   );
 }
